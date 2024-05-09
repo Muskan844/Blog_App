@@ -23,7 +23,7 @@ const Write = () => {
       newPost.photo = filename;
       try {
         await axios.post("http://localhost:5000/api/upload", data);
-        console.log("uploaded")
+        console.log("uploaded");
       } catch (err) {
         console.log(err);
       }
