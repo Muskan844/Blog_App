@@ -8,9 +8,11 @@ const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const cors = require("cors");
+const path= require("path");
 
 dotenv.config();
 app.use(express.json()); //to send res in json format (via controller)
+app.use("/images",express.static(path.join(__dirname,"/images")));// to show images in posts on frontend which is posted
 
 const corsOptions = {
   origin: "http://localhost:5173",

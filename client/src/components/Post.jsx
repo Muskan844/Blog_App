@@ -2,9 +2,10 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 
 const Post = ({ post }) => {
+  const PF= "http://localhost:5000/images/"; //PublicFolder
   return (
     <div className="post">
-      {post.photo && <img className="postImg" src={post.photo} alt="" />}
+      {post.photo && <img className="postImg" src={PF+post.photo} alt="" />}
 
       <div className="postInfo">
         <div className="postCategs">

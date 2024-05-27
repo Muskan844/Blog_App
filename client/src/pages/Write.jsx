@@ -28,9 +28,11 @@ const Write = () => {
         console.log(err);
       }
     }
+    console.log("newPost is",newPost);
     try {
-      const res = await axios.post("http://localhost:5000/api/post", newPost);
-      console.log(res);
+      const res = await axios.post("http://localhost:5000/api/post/",newPost);
+      
+      console.log("res is",res.data);
       window.location.replace("/post/" + res.data._id);
     } catch (err) {
       console.log(err);

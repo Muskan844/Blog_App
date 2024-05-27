@@ -7,6 +7,7 @@ const SinglePost = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2].slice(1);
   const [post, setPost] = useState({});
+  const PF= "http://localhost:5000/images/"; //PublicFolder
 
   useEffect(() => {
     const getPost = async () => {
@@ -20,7 +21,7 @@ const SinglePost = () => {
       <div className="singlePostWrapper">
         {post.photo && <img
           className="singlePostImg"
-          src={post.photo}
+          src={PF+ post.photo}
           alt="img"
         />}
         <h1 className="singlePostTitle">
