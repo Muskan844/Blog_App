@@ -1,37 +1,103 @@
-import React from 'react'
-import Sidebar from '../components/Sidebar'
+import React, { useContext, useState } from "react";
+import Sidebar from "../components/Sidebar";
+import { Context } from "../contextData/Context";
+import axios from "axios";
+
 const Setting = () => {
+  const { user,dispatch } = useContext(Context);
+  const [file, setFile] = useState(null);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState(false);
+  const PF="http://localhost:5000/images/"
+
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    dispatch({type:"UPDATE_START"});
+    const updatedUser = { 
+      userId: user._id,
+      username,
+      email,
+      password,
+    };
+    if (file) {
+      const data = new FormData();
+      const filename = Date.now() + file.name; // date.now() is added here to prevent adding different image with same name
+      data.append("name", filename);
+      data.append("file", file);
+      updatedUser.profilePic = filename;
+      try {
+        await axios.post("http://localhost:5000/api/upload", data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    try {
+      const res = await axios.put(
+        "http://localhost:5000/api/user/" + user._id,
+        updatedUser
+      );
+      setSuccess(true);
+      dispatch({type:"UPDATE_SUCCESS",payload:res.data});
+    } catch (err) {
+      console.log(err);
+      dispatch({type:"UPDATE_FAILURE"});
+    }
+  };
   return (
     <>
-    <div className='setting'>
+      <div className="setting">
         <div className="settingWrapper">
-            <div className="settingTitle">
-                <div className="settingUpdate">Update your account</div>
-                <div className="settingDelete">Delete your account</div>
+          <div className="settingTitle">
+            <div className="settingUpdate">Update your account</div>
+            <div className="settingDelete">Delete your account</div>
+          </div>
+          <form className="settingForm" onSubmit={handleUpdate}>
+            <label>Profile Picture</label>
+            <div className="settingPP">
+              <img src={file? URL.createObjectURL(file) : PF + user.profilePic} alt="" className="settingImg" />
+              <label htmlFor="fileInput">
+                <i class=" settingPPIcon far fa-circle-user"></i>
+              </label>
+              <input
+                type="file"
+                className="settingPPInput"
+                id="fileInput"
+                style={{ display: "none" }}
+                onChange={(e) => setFile(e.target.files[0])}
+              />
             </div>
-            <form className="settingForm">
-                <label>Profile Picture</label>
-                 <div className="settingPP">
-                    <img src="https://images.unsplash.com/photo-1708804760932-d97756d67419?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8fA%3D%3D" alt="" className="settingImg" />
-                    <label htmlFor="fileInput">
-                    <i class=" settingPPIcon far fa-circle-user"></i>
-                    </label>
-                    <input type="file" className="settingPPInput" id="fileInput" style={{display:"none"}} />
-                 </div>
-                 <label>Username</label>
-                 <input type="text" name="username" placeholder='Muskan' />
-                 <label>Email</label>
-                 <input type="email" name="email" placeholder='Muskan@gmail.com' />
-                 <label>Password</label>
-                 <input type="password" name="password" placeholder='password'/>
-                 <button className='settingSubmitbtn' type='Submit'>Update</button>
-            </form>
+            <label>Username</label>
+            <input
+              type="text"
+              name="username"
+             
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder={user.username}
+            />
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder={user.email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button className="settingSubmitbtn" type="Submit">
+              Update
+            </button>
+            {success && <span style={{color:"green", textAlign:"center", marginTop:"15px"}}>Profile has been updated!</span>}
+          </form>
         </div>
-        <Sidebar/>
-    </div>
-    
+        <Sidebar />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Setting
+export default Setting;

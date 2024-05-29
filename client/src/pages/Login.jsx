@@ -6,7 +6,7 @@ import axios from "axios";
 const Login = () => {
   const userRef = useRef();
   const passwordRef = useRef();
-  const {dispatch,isFetching } = useContext(Context)
+  const {dispatch,isFetching} = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

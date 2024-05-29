@@ -17,3 +17,16 @@ export const LoginFailure = () =>({
 export const Logout = () =>({
     type:"LOGOUT",
 }) 
+export const UpdateStart =(userCredentials)=>({
+    type:"UPADTE_START"
+})// we do not return anything, instead wait for successful or failure process
+
+export const UpdateSuccess=(user)=>({
+    type: "UPADTE_SUCCESS",
+    payload: user,  // to update our state
+})
+//return user's information
+
+export const UpdateFailure = () =>({
+     type:"UPADTE_FAILURE",
+})    
