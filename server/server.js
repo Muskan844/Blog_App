@@ -42,10 +42,10 @@ app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
 app.use("/api/category", categoryRoute);
 
-const PORT = process.env.port || 5000;
+const PORT = process.env.port || 5001;
 
 connectDb().then(() => {
   app.listen(PORT, () => {
-    console.log("Server is up on port 5000");
+    console.log("Server is up on port 5001");
   });
 });
