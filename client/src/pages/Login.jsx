@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({type:"LOGIN_START"}); //on clicking login btn, its gonna call LOGIN_START btn in Reducer.js and update its isFetching
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login",{
+      const res = await axios.post("https://blog-app-20-hsmc.onrender.com/api/auth/login",{
         username: userRef.current.value,
         password: passwordRef.current.value,
       })

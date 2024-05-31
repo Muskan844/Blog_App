@@ -4,7 +4,7 @@ import { Context } from "../contextData/Context";
 
 const Navbar = () => {
   const {user, dispatch} = useContext(Context);
-  const PF="http://localhost:5000/images/"
+  const PF="https://blog-app-20-hsmc.onrender.com/images/"
 
   const handleLogout=()=>{
     dispatch({type:"LOGOUT"});

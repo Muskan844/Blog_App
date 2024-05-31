@@ -2,7 +2,7 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 
 const Post = ({ post }) => {
-  const PF= "http://localhost:5000/images/"; //PublicFolder
+  const PF= "https://blog-app-20-hsmc.onrender.com/images/"; //PublicFolder
   return (
     <div className="post">
       {post.photo && <img className="postImg" src={PF+post.photo} alt="" />}
