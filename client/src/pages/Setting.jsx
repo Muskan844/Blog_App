@@ -10,7 +10,7 @@ const Setting = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
-  const PF="https://blog-app-20-hsmc.onrender.com/images/"
+  const PF="https://blog-app-25.onrender.com/images/"
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -28,14 +28,14 @@ const Setting = () => {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post("https://blog-app-20-hsmc.onrender.com/api/upload", data);
+        await axios.post("https://blog-app-25.onrender.com/api/upload", data);
       } catch (err) {
         console.log(err);
       }
     }
     try {
       const res = await axios.put(
-        "https://blog-app-20-hsmc.onrender.com/api/user/" + user._id,
+        "https://blog-app-25.onrender.com/api/user/" + user._id,
         updatedUser
       );
       setSuccess(true);

@@ -11,7 +11,7 @@ const Register = () => {
     e.preventDefault();
     setError(false);
     try {
-      const res = await axios.post("https://blog-app-20-hsmc.onrender.com/api/auth/register", {
+      const res = await axios.post("https://blog-app-25.onrender.com/api/auth/register", {
         username,
         email,
         password,

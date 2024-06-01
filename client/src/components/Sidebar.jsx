@@ -7,7 +7,7 @@ const Sidebar = () => {
   //data from backend is coming with the help of useeffect each time page loads, but setting into its space with the help of usestate
   useEffect(() => {
     const getCategs = async () => {
-      const res = await axios.get("https://blog-app-20-hsmc.onrender.com/api/category");
+      const res = await axios.get("https://blog-app-25.onrender.com/api/category");
       setCategs(res.data);
     };
     getCategs();

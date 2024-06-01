@@ -22,7 +22,7 @@ const Write = () => {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("https://blog-app-20-hsmc.onrender.com/api/upload", data);
+        await axios.post("https://blog-app-25.onrender.com/api/upload", data);
         console.log("uploaded");
       } catch (err) {
         console.log(err);
@@ -30,7 +30,7 @@ const Write = () => {
     }
     console.log("newPost is",newPost);
     try {
-      const res = await axios.post("https://blog-app-20-hsmc.onrender.com/api/post/",newPost);
+      const res = await axios.post("https://blog-app-25.onrender.com/api/post/",newPost);
       
       console.log("res is",res.data);
       window.location.replace("/post/" + res.data._id);

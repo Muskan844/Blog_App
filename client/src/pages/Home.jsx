@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPosts= async()=>{
     
-        const res = await axios.get("https://blog-app-20-hsmc.onrender.com/api/post/"+search);
+        const res = await axios.get("https://blog-app-25.onrender.com/api/post/"+search);
         console.log(res.data);
         setPost(res.data);      
     };

@@ -8,7 +8,7 @@ const SinglePost = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2].slice(1);
   const [post, setPost] = useState({});
-  const PF = "https://blog-app-20-hsmc.onrender.com/images/"; //PublicFolder
+  const PF = "https://blog-app-25.onrender.com/images/"; //PublicFolder
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -16,7 +16,7 @@ const SinglePost = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("https://blog-app-20-hsmc.onrender.com/api/post/" + path);
+      const res = await axios.get("https://blog-app-25.onrender.com/api/post/" + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -26,7 +26,7 @@ const SinglePost = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("https://blog-app-20-hsmc.onrender.com/api/post/" + path, {
+      await axios.delete("https://blog-app-25.onrender.com/api/post/" + path, {
         data: { username: user.username },
       }); // data given for comparing post.username and user.username
       window.location.replace("/");
@@ -34,7 +34,7 @@ const SinglePost = () => {
   };
   const handleUpdate = async () => {
     try {
-      await axios.put("https://blog-app-20-hsmc.onrender.com/api/post/" + path, {
+      await axios.put("https://blog-app-25.onrender.com/api/post/" + path, {
         username: user.username,
         title,
         desc,
