@@ -43,10 +43,6 @@ app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
 app.use("/api/category", categoryRoute);
 
-app.get("/", (req, res) => {
-  res.send("Server is running!");
-});
-
 const PORT = process.env.port || 5001;
 
 connectDb().then(() => {
