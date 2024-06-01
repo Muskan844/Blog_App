@@ -15,7 +15,7 @@ app.use(express.json()); //to send res in json format (via controller)
 app.use("/images",express.static(path.join(__dirname,"/images")));// to show images in posts on frontend which is posted
 
 const corsOptions = {
-  origin: "https://blog-app-lqxf.vercel.app",
+  origin: "https://blog-app-lqxf-f8gw0bw0b-muskans-projects-544cad33.vercel.app",
 //   // methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
 //   // credentials: true,
   optionsSuccessStatus: 200,
