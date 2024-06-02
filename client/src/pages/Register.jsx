@@ -16,7 +16,7 @@ const Register = () => {
         email,
         password,
       });
-      res.data && window.location.replace("/login");
+      // res.data && window.location.replace("/login");
     } catch (error) {
       setError(true);
     }
