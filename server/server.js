@@ -16,8 +16,8 @@ app.use("/images",express.static(path.join(__dirname,"/images")));// to show ima
 
 const corsOptions = {
   origin: "*",
-//   // methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
-//   // credentials: true,
+  methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
+  credentials: true,
   optionsSuccessStatus: 200,
 };
 app.use(cors());
