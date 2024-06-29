@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +20,7 @@ const Register = () => {
       });
       if(res.data){
         console.log("Registration successful, redirecting to login...");
-        history.push('/login');
+        navigate('/login');
       } 
     } catch (error) {
       setError(true);
