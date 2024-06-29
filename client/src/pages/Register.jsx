@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useHistory } from 'eact-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Register = () => {
   const history = useHistory();
