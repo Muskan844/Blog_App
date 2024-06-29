@@ -1,4 +1,4 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
-  "alias": "https://blog-app-n6lg-flwhx6eft-muskans-projects-544cad33.vercel.app/"
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+ 
 }
