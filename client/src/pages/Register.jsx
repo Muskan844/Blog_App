@@ -17,9 +17,13 @@ const Register = () => {
         email,
         password,
       });
-      res.data && window.location.replace("/login");
+      if(res.data){
+        console.log("Registration successful, redirecting to login...");
+        window.location.replace("/login");
+      } 
     } catch (error) {
       setError(true);
+      console.error("Registration failed", error);
     }
   };
   return (
