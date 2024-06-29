@@ -7,6 +7,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(false);
@@ -16,7 +17,7 @@ const Register = () => {
         email,
         password,
       });
-      // res.data && window.location.replace("/login");
+      res.data && window.location.replace("/login");
     } catch (error) {
       setError(true);
     }
