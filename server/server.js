@@ -43,7 +43,7 @@ app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
 app.use("/api/category", categoryRoute);
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.port || 5001;
 
 connectDb().then(() => {
   app.listen(PORT, () => {

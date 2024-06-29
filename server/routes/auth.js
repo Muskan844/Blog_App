@@ -36,6 +36,7 @@ router.post("/login", async (req, res) => {
 
     const validate = await bcrypt.compare(req.body.password, user.password);
     if (!validate) {
+      
       res.status(400).json("Invalid Credentials");
     }
 
